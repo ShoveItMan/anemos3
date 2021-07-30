@@ -1,0 +1,10 @@
+<div class="d-flex align-items-center justify-content-center">
+  <h1>Menus</h1>
+</div>
+<ul class="list-group">
+  <% @menus.each do |menu| %>
+    <li class="list-group-item list-group-item-action list-group-item-primary">
+      <%= menu.title %>
+    </li>
+  <% end %>
+</ul>
