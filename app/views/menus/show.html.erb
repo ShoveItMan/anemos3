@@ -1,0 +1,19 @@
+<div class="d-flex align-items-center justify-content-center">
+  <h1><%= @menu.title %></h1>
+</div>
+<div class="container">
+  <dl class="row">
+    <dt class="col-sm-3">Edit menu</dt>
+    <dd class="col-sm-9">
+      <%= render 'form', menu: @menu %>
+    </dd>
+
+    <dt class="col-sm-3"><%= 
+      link_to "Destroy", 
+      menu_path(@menu),
+      method: :delete,
+      data: { confirm: "This will also erase all submenus and menu items included in this menu.\nAre you sure ?",
+      class: ""}
+    %></dt>
+  </dl>
+</div>

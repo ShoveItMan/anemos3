@@ -4,7 +4,10 @@
 <ul class="list-group">
   <% @menus.each do |menu| %>
     <li class="list-group-item list-group-item-action list-group-item-primary">
-      <%= menu.title %>
+      <%= link_to menu.title, menu %>
     </li>
   <% end %>
 </ul>
+
+<h2>Add a menu:</h2>
+<%= render 'form', menu: @menu %>
