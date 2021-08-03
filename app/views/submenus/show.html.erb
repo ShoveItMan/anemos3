@@ -1,6 +1,32 @@
-<div class="d-flex align-items-center justify-content-center">
-  <h1><%= @submenu.title %></h1>
+<div class="d-flex align-items-center justify-content-center bg-warning rounded p-4 text-white">
+  <h1 class="ms-5 me-5 ps-5 pe-5"><%= @submenu.title %></h1>
+  <h2 class="ms-auto">   in <%= @menu.title %></h2>
 </div>
-<div class="d-flex align-items-right justify-content-end">
-  <h2>   in <%= @menu.title %></h2>
+
+<hr>
+
+<hr>
+ 
+<hr>
+<div class="container rounded bg-warning text-white p-3">
+  <dl class="row">
+    <dt class="col-sm-3">Edit submenu</dt>
+    <dd class="col-sm-9">
+      <%= form_with model:  @submenu do |form| %>
+      <p>
+        <%= form.text_field :title, class:"form-control" %>
+        <%= form.submit "Update", class:"btn btn-secondary" %>
+      </p>
+    <% end %>
+    </dd>
+
+    <dt class="col-sm-3"><%= 
+      link_to "Destroy", 
+      submenu_path(@submenu),
+      class: "btn btn-danger",
+      method: :delete,
+      data: { confirm: "This will also erase all submenus and menu items included in this menu.\nAre you sure ?"}
+    %></dt>
+  </dl>
 </div>
+<hr>

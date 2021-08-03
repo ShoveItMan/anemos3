@@ -14,10 +14,8 @@ class MenusController < ApplicationController
     @menu = Menu.new(menu_params)
 
     if @menu.save
-      redirect_to @menu
-    else
-      render :new
     end
+    redirect_to @menu
   end
 
   def edit

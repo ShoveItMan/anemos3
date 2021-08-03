@@ -1,21 +1,27 @@
-<div class="d-flex align-items-center justify-content-center">
+<div class="d-flex align-items-center justify-content-center bg-primary rounded p-4">
   <h1><%= @menu.title %></h1>
 </div>
 <hr>
 <ul class="list-group">
   <% @menu.submenus.each do |submenu| %>
-    <li class="list-group-item list-group-item-action list-group-item-secondary">
-      <%= link_to submenu.title, menu_submenu_path(@menu, submenu) %>
+    <li class="list-group-item list-group-item-action list-group-item-warning">
+      <%= link_to submenu.title, submenu_path(submenu) %>
     </li>
   <% end %>
 </ul>
 <hr>
-<div class="container bg-secondary rounded text-white">
+<div class="container bg-warning rounded text-white p-3">
   <h2>Add a submenu :</h2>
-  <%= render 'submenus/form' %>
+  <%= form_with model: [@menu, @menu.submenus.build] do |form| %>
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <%= form.submit %>
+  </p>
+<% end %>
 </div>
 <hr>
-<div class="container rounded bg-primary text-white margin-5">
+<div class="container rounded bg-primary text-white p-3">
   <dl class="row">
     <dt class="col-sm-3">Edit menu</dt>
     <dd class="col-sm-9">
