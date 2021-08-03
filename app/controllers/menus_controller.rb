@@ -1,14 +1,13 @@
 class MenusController < ApplicationController
   def index
     @menus = Menu.all
+    @menu = Menu.new
   end
 
   def show
     @menu = Menu.find(params[:id])
-  end
-
-  def new
-    @menu = Menu.new
+    @submenus = Submenu.all
+    @submenu = Submenu.new
   end
 
   def create
@@ -28,7 +27,7 @@ class MenusController < ApplicationController
   def update
     @menu = Menu.find(params[:id])
 
-    if @menu.update(edit_menu_params)
+    if @menu.update(menu_params)
       redirect_to @menu
     else
       render :edit
@@ -44,9 +43,6 @@ class MenusController < ApplicationController
 
   private
     def menu_params
-      params.permit(:title)
-    end
-    def edit_menu_params
       params.require(:menu).permit(:title)
     end
 

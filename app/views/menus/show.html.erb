@@ -1,7 +1,21 @@
 <div class="d-flex align-items-center justify-content-center">
   <h1><%= @menu.title %></h1>
 </div>
-<div class="container">
+<hr>
+<ul class="list-group">
+  <% @menu.submenus.each do |submenu| %>
+    <li class="list-group-item list-group-item-action list-group-item-secondary">
+      <%= link_to submenu.title, menu_submenu_path(@menu, submenu) %>
+    </li>
+  <% end %>
+</ul>
+<hr>
+<div class="container bg-secondary rounded text-white">
+  <h2>Add a submenu :</h2>
+  <%= render 'submenus/form' %>
+</div>
+<hr>
+<div class="container rounded bg-primary text-white margin-5">
   <dl class="row">
     <dt class="col-sm-3">Edit menu</dt>
     <dd class="col-sm-9">
@@ -11,9 +25,10 @@
     <dt class="col-sm-3"><%= 
       link_to "Destroy", 
       menu_path(@menu),
+      class: "btn btn-danger",
       method: :delete,
-      data: { confirm: "This will also erase all submenus and menu items included in this menu.\nAre you sure ?",
-      class: ""}
+      data: { confirm: "This will also erase all submenus and menu items included in this menu.\nAre you sure ?"}
     %></dt>
   </dl>
 </div>
+<hr>
