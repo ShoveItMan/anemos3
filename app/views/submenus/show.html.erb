@@ -4,9 +4,28 @@
 </div>
 
 <hr>
-
+<ul class="list-group">
+  <% @submenu.items.each do |item| %>
+    <li class="list-group-item list-group-item-action list-group-item-success">
+      <%=  link_to item.name+" @ "+item.price.to_s+"€", submenu_item_path(item) %>
+    </li>
+  <% end %>
+</ul>
 <hr>
- 
+ <div class="container bg-success rounded text-white p-3">
+  <h2>Add an item :</h2>
+  <%= form_with model: [@submenu, @submenu.items.build] do |form| %>
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <br>
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+    <br>
+    <%= form.submit %>
+  </p>
+<% end %>
+</div>
 <hr>
 <div class="container rounded bg-warning text-white p-3">
   <dl class="row">
