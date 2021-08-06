@@ -1,0 +1,12 @@
+<div class="d-flex flex-column btn-group-vertical form-btn-group p-1 rounded bg-success">
+  
+  <% @submenu.items.each do |item| %>
+    
+    <% price_str = number_with_precision( item.price, :precision => 2).to_s+"€" %>
+    
+    <% item_display = item.name+" @ "+price_str %>
+    
+    <%= button_to item_display, item , style: "", class:"btn  btn-food-item m-1" , method: :get  %>
+  
+  <% end %>
+</div>

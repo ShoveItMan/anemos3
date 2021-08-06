@@ -4,6 +4,13 @@ class ItemsController < ApplicationController
     @submenu = Submenu.find(@item.submenu_id)
     @menu = Menu.find(@submenu.menu_id)
   end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+    end
+    redirect_to @item
+  end
   
   def create
     @submenu = Submenu.find(params[:submenu_id])

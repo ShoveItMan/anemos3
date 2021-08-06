@@ -1,0 +1,11 @@
+<div class="container bg-warning rounded text-secondary p-3 me-3">
+  <h2>Add an submenu :</h2>
+  <%= form_with model: [@menu, @menu.submenus.build] do |form| %>
+    <p>
+      <%= form.label :title, class:"form-label" %>
+      <%= form.text_field :title, class:"form-control" %>
+      <br>
+      <%= form.submit "Create Submenu" ,class:"btn btn-submenu" %>
+    </p>
+  <% end %>
+</div>

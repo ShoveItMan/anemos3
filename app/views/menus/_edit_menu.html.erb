@@ -1,0 +1,18 @@
+<div class="container rounded bg-primary text-white p-3 ms-3">
+  <%= form_with model:  @menu do |form| %>
+    <p>
+      <%= form.label "Edit title", class:"form-label" %>
+      <%= form.text_field :title, class:"form-control" %>
+      <br>
+      <%= form.submit "Update", class:"btn btn-menu" %>
+    </p>
+  <% end %>
+
+  <%= 
+    button_to "Destroy", 
+    menu_path(@menu),
+    class: "btn btn-danger",
+    method: :delete,
+    data: { confirm: "This will also erase all submenus and menu items included in this menu.\nAre you sure ?"}
+  %>
+</div>

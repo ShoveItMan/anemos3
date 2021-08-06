@@ -1,0 +1,7 @@
+<%= form_with model:  @submenu, url: submenu_path(@submenu) do |form| %>
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,11 @@
+<div class="container bg-primary rounded text-white">
+  <h2>Add a menu :</h2>
+  <%= form_with model: @menu do |form| %>
+    <p>
+      <%= form.label :title, class:"form-label" %>
+      <%= form.text_field :title, class:"form-control" %>
+      <br>
+      <%= form.submit "Create menu", class:"btn btn-menu" %>
+    </p>
+  <% end %>
+</div>

@@ -1,51 +1,12 @@
-<div class="d-flex align-items-center justify-content-center bg-warning rounded p-4 text-white">
-  <h1 class="ms-5 me-5 ps-5 pe-5"><%= @submenu.title %></h1>
-  <h2 class="ms-auto">   in <%= @menu.title %></h2>
-</div>
+<div class="m-3">
+  <%= render "title" %>
+  <hr>
 
-<hr>
-<ul class="list-group">
-  <% @submenu.items.each do |item| %>
-    <li class="list-group-item list-group-item-action list-group-item-success">
-      <%=  link_to item.name+" @ "+item.price.to_s+"€", submenu_item_path(item) %>
-    </li>
-  <% end %>
-</ul>
-<hr>
- <div class="container bg-success rounded text-white p-3">
-  <h2>Add an item :</h2>
-  <%= form_with model: [@submenu, @submenu.items.build] do |form| %>
-  <p>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-    <br>
-    <%= form.label :price %>
-    <%= form.number_field :price %>
-    <br>
-    <%= form.submit %>
-  </p>
-<% end %>
-</div>
-<hr>
-<div class="container rounded bg-warning text-white p-3">
-  <dl class="row">
-    <dt class="col-sm-3">Edit submenu</dt>
-    <dd class="col-sm-9">
-      <%= form_with model:  @submenu do |form| %>
-      <p>
-        <%= form.text_field :title, class:"form-control" %>
-        <%= form.submit "Update", class:"btn btn-secondary" %>
-      </p>
-    <% end %>
-    </dd>
+  <%= render "list_items" %>
+  <hr>
 
-    <dt class="col-sm-3"><%= 
-      link_to "Destroy", 
-      submenu_path(@submenu),
-      class: "btn btn-danger",
-      method: :delete,
-      data: { confirm: "This will also erase all submenus and menu items included in this menu.\nAre you sure ?"}
-    %></dt>
-  </dl>
+  <div class="d-flex justify-content-around ">
+    <%= render "add_an_item" %>
+    <%= render "edit_submenu" %>
+  </div>
 </div>
-<hr>

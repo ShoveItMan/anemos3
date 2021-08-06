@@ -1,0 +1,8 @@
+<div class="d-flex flex-column btn-group-vertical form-btn-group p-1 rounded bg-warning">
+  
+  <% @menu.submenus.each do |submenu| %>
+    
+    <%= button_to submenu.title, submenu , class:"btn  btn-submenu m-1" , method: :get  %>
+  
+  <% end %>
+</div>

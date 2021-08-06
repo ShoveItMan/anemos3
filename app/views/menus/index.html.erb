@@ -1,16 +1,11 @@
-<div class="d-flex align-items-center justify-content-center bg-primary rounded p-4">
-  <h1>Menus</h1>
-</div>
-<hr>
-<ul class="list-group">
-  <% @menus.each do |menu| %>
-    <li class="list-group-item list-group-item-action list-group-item-primary">
-      <%= link_to menu.title, menu %>
-    </li>
-  <% end %>
-</ul>
-<hr>
-<div class="container bg-primary rounded text-white p-3">
-  <h2>Add a menu:</h2>
-  <%= render 'form' %>
+<div class="m-3">
+  <div class="p-3 d-flex justify-content-center rounded bg-primary text-white">
+    <h1>Menus</h1>
+  </div>
+  <hr>
+  <%= render "index_menus" %>
+  <hr>
+  <div class="d-flex justify-content-around ">
+    <%= render "add_a_menu" %>
+  </div>
 </div>
